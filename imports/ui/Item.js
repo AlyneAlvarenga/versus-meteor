@@ -1,18 +1,14 @@
 import React from 'react';
-import {Items} from '../api/items';
+import { Meteor } from 'meteor/meteor';
 
 const Item = (props) => {
 
   handleClick = (event) => {
     if (props.item1 === event.target.innerText) {
-      Items.update(props.id, {
-        $inc: {"first.count": 1}
-      })
+      Meteor.call('updateCounterItem1', props);
 
     } else if (props.item2 === event.target.innerText) {
-      Items.update(props.id, {
-        $inc: { "second.count": 1 }
-      })
+      Meteor.call('updateCounterItem2', props);
     }
   }
 

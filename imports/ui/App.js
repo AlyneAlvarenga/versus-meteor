@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Items } from '../api/items.js';
 import Item from './Item';
-// import { Hello } from './Hello.jsx';
-// import { Info } from './Info.jsx';
 
 const App = (props) => {
   const [question, setQuestion] = useState('');
@@ -14,11 +12,15 @@ const App = (props) => {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    Meteor.call('insertNewPoll', question, item1, item2);
-
-    setQuestion('');
-    setItem1('');
-    setItem2('');
+    if (question !== '' && item1 !== '' && item2 !== '') {
+      Meteor.call('insertNewPoll', question, item1, item2);
+  
+      setQuestion('');
+      setItem1('');
+      setItem2('');
+    } else {
+      alert('Please fill out all fields!');
+    }
   }
 
   renderItems = () => {
@@ -50,6 +52,7 @@ const App = (props) => {
             <label htmlFor="item2">Item 2</label>
             <input type="text" id="item2" placeholder="Item 2" name="item1" value={item2}
             onChange={e => setItem2(e.target.value)}/>
+            
             <button>Submit</button>
           </form>
         </header>

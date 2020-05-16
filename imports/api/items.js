@@ -16,5 +16,21 @@ Meteor.methods({
       second: { item2: item2, count: 0 },
       createdAt: new Date(),
     })
-  }
+  },
+
+  updateCounterItem1(props) {
+    check(props, Object);
+
+    Items.update(props.id, {
+      $inc: { "first.count": 1 }
+    })
+  },
+  
+  updateCounterItem2(props) {
+    check(props, Object);
+
+    Items.update(props.id, {
+      $inc: { "second.count": 1 }
+    })
+  },
 })
