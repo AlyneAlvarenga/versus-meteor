@@ -28,7 +28,8 @@ const App = (props) => {
 
   renderItems = () => {
     return props.items.map(item => (
-      <Item key={item._id} 
+      <Item key={item._id}
+        id={item._id}
         question={item.question}
         item1={item.first.item1}
         item2={item.second.item2}

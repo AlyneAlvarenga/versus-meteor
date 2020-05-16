@@ -4,16 +4,16 @@ import {Items} from '../api/items';
 const Item = (props) => {
 
   handleClick = (event) => {
-    // console.log(props.items.find(item => {
+    if (props.item1 === event.target.innerText) {
+      Items.update(props.id, {
+        $inc: {"first.count": 1}
+      })
 
-    // }));
-    console.log(event.target);
-
-    console.log(event.target.innerText);
-
-    // Items.update(props.item._id, {
-    //   $set: {count: count + 1},
-    // });
+    } else if (props.item2 === event.target.innerText) {
+      Items.update(props.id, {
+        $inc: { "second.count": 1 }
+      })
+    }
   }
 
   return (
