@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Items } from '../api/items.js';
+import Item from './Item';
 // import { Hello } from './Hello.jsx';
 // import { Info } from './Info.jsx';
 
@@ -26,15 +27,15 @@ const App = (props) => {
   }
 
   renderItems = () => {
-    return props.items.map(item => {
-      return (
-        <li key={item._id}>
-          <h2>{item.question}</h2>
-          <button>{item.first.item1}</button>
-          <button>{item.second.item2}</button>
-        </li>
-      )
-    })
+    return props.items.map(item => (
+      <Item key={item._id} 
+        question={item.question}
+        item1={item.first.item1}
+        item2={item.second.item2}
+        count1={item.first.count}
+        count2={item.second.count}
+      />
+    ))
   }
     return (
       <main>
@@ -68,6 +69,6 @@ const App = (props) => {
 
 export default withTracker(() => {
   return {
-    items: Items.find().fetch(),
+    items: Items.find({}, { sort: {createdAt: -1} }).fetch(),
   }
 })(App);
