@@ -14,12 +14,7 @@ const App = (props) => {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    Items.insert({
-      question,
-      first: { item1: item1, count: 0 },
-      second: { item2: item2, count: 0 },
-      createdAt: new Date(),
-    })
+    Meteor.call('insertNewPoll', question, item1, item2);
 
     setQuestion('');
     setItem1('');
