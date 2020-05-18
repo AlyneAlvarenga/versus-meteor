@@ -36,7 +36,7 @@ const App = (props) => {
     ))
   }
     return (
-      <main>
+      <>
         <header>
           <h1>Versus</h1>
 
@@ -57,11 +57,13 @@ const App = (props) => {
           </form>
         </header>
 
-        <ul>
-          {renderItems()}
-        </ul>
+        <main>
+          <ul>
+            {renderItems()}
+          </ul>
+        </main>
 
-      </main>
+      </>
     )
 
 };
