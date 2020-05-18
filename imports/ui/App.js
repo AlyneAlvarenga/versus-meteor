@@ -58,7 +58,7 @@ const App = (props) => {
         </header>
 
         <main>
-          <div className="App-wrapper">
+          <div>
             <ul className="App-cardContainer">
               {renderItems()}
             </ul>
