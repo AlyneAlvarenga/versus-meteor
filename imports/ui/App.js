@@ -41,15 +41,15 @@ const App = (props) => {
           <h1>Versus</h1>
 
           <form action="" onSubmit={handleSubmit}>
-            <label htmlFor="question">Add your question</label>
+            <label htmlFor="question" className="visuallyhidden">Add your question</label>
             <input type="text" id="question" placeholder="Question" name="question" value={question}
             onChange={e => setQuestion(e.target.value)}/>
 
-            <label htmlFor="item1">Item 1</label>
+            <label htmlFor="item1" className="visuallyhidden">Item 1</label>
             <input type="text" id="item1" placeholder="Item 1" name="item1" value={item1}
             onChange={e => setItem1(e.target.value)}/>
 
-            <label htmlFor="item2">Item 2</label>
+            <label htmlFor="item2" className="visuallyhidden">Item 2</label>
             <input type="text" id="item2" placeholder="Item 2" name="item1" value={item2}
             onChange={e => setItem2(e.target.value)}/>
             
@@ -58,9 +58,11 @@ const App = (props) => {
         </header>
 
         <main>
-          <ul>
-            {renderItems()}
-          </ul>
+          <div className="App-wrapper">
+            <ul className="App-cardContainer">
+              {renderItems()}
+            </ul>
+          </div>
         </main>
 
       </>

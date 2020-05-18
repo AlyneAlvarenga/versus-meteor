@@ -15,14 +15,16 @@ const Item = (props) => {
   return (
     <li>
       <h2>{props.question}</h2>
-      <div>
-        <button onClick={handleClick}>{props.item1}</button>
-        <p>{props.count1}</p>
-      </div>
-      <div>
-        <button onClick={handleClick}>{props.item2}</button>
-        <p>{props.count2}</p>
-      </div>
+      <ul className="Item-buttonContainer">
+        <li className="Item-button">
+          <button onClick={handleClick}>{props.item1}</button>
+          <p>{props.count1} votes</p>
+        </li>
+        <li className="Item-button">
+          <button onClick={handleClick}>{props.item2}</button>
+          <p>{props.count2} votes</p>
+        </li>
+      </ul>
     </li>
   )
 }
